@@ -10,6 +10,9 @@
     "deps": "depcheck .",
     "test": "nyc node test/endpoint.js && npm run deps && npm run lint",
     "test:db": "NODE_ENV=test node test/db-setup.js",
+    "test:env": "NODE_ENV=test node test/environment-switching.js",
+    "test:sqlite": "NODE_ENV=test node test/sqlite-setup.js",
+    "test:seed": "NODE_ENV=test node test/seed-validation.js",
     "db:seed": "NODE_ENV=development node scripts/seed.js",
     "db:test-seed": "NODE_ENV=test node scripts/test-seed.js"
   },
