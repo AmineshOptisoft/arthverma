@@ -9,7 +9,9 @@
     "lint": "standard",
     "deps": "depcheck .",
     "test": "nyc node test/endpoint.js && npm run deps && npm run lint",
-    "db:seed": "NODE_ENV=development node scripts/seed.js"
+    "test:db": "NODE_ENV=test node test/db-setup.js",
+    "db:seed": "NODE_ENV=development node scripts/seed.js",
+    "db:test-seed": "NODE_ENV=test node scripts/test-seed.js"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +24,7 @@
     "express": "^4.19.2",
     "express-pino-logger": "^7.0.0",
     "healthpoint": "^1.0.0",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.14.3",
     "productionize": "^5.0.0",
     "sqlite3": "^5.1.7"
   },
