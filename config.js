@@ -11,6 +11,6 @@ module.exports = {
     database: process.env.DB_NAME || 'budget'
   },
   currency: {
-    apiKey: process.env.CURRENCY_API_KEY
+    apiKey: process.env.CURRENCY_API_KEY || 'a0426cd75e068086aa6de9ae'
   }
 }
