@@ -86,7 +86,6 @@ test('/api/project/budget/currency should return 400 for missing required fields
   })
 })
 
-
 // 2. GET /api/project/budget/:id tests
 test('GET /api/project/budget/:id tests', function (t) {
   t.test('should successfully get project by ID', function (t) {
@@ -114,7 +113,6 @@ test('GET /api/project/budget/:id tests', function (t) {
     })
   })
 })
-
 
 // 3. POST /api/project/budget tests
 test('POST /api/project/budget tests', function (t) {
@@ -176,9 +174,6 @@ test('POST /api/project/budget tests', function (t) {
     })
   })
 })
-
-
-
 
 // 4. PUT /api/project/budget/:id tests
 test('PUT /api/project/budget/:id tests', function (t) {
@@ -245,7 +240,6 @@ test('PUT /api/project/budget/:id tests', function (t) {
       t.end()
     })
   })
-
 })
 
 // 5. DELETE /api/project/budget/:id tests
@@ -342,7 +336,6 @@ test('TTD conversion for Llapingacho Instagram', function (t) {
   })
 })
 
-
 // ==================== INTEGRATION TESTS ====================
 
 test('Integration tests for full CRUD cycle', function (t) {
@@ -396,7 +389,6 @@ test('Integration tests for full CRUD cycle', function (t) {
     })
   })
 })
-
 
 // Clean up database after tests
 test('Database Cleanup', (t) => {

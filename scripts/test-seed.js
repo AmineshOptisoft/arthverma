@@ -10,8 +10,8 @@ dbSetup.initializeTestDatabase((err, message) => {
     console.error('Error initializing test database:', err)
     process.exit(1)
   }
-  
+
   console.log(message)
   console.log('Test database seeding completed successfully')
   process.exit(0)
-}) 
+})

@@ -1,5 +1,7 @@
+// External dependencies
 require('dotenv').config()
 
+// Exports
 module.exports = {
   server: {
     port: process.env.PORT || 1337
