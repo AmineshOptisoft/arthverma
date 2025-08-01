@@ -5,6 +5,9 @@ const test = require('tape')
 const servertest = require('servertest')
 const app = require('../lib/app')
 
+// call conversion.js file to test conversion api
+require('./conversion')
+
 const server = http.createServer(app)
 
 test('GET /health should return 200', function (t) {
@@ -31,3 +34,5 @@ test('GET /nonexistent should return 404', function (t) {
     t.end()
   })
 })
+
+
