@@ -10,7 +10,7 @@ test('Database Setup Tests', (t) => {
     dbSetup.initializeTestDatabase((err, message) => {
       st.error(err, 'No error during table creation')
       st.ok(message.includes('successfully'), 'Should return success message')
-      
+
       // Verify table exists
       db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='project'", (err, row) => {
         st.error(err, 'No error checking table existence')
@@ -24,7 +24,7 @@ test('Database Setup Tests', (t) => {
     dbSetup.loadSeedData((err, message) => {
       st.error(err, 'No error during seed data loading')
       st.ok(message.includes('successfully'), 'Should return success message')
-      
+
       // Verify data was inserted
       db.get('SELECT COUNT(*) as count FROM project', (err, row) => {
         st.error(err, 'No error counting records')
@@ -38,7 +38,7 @@ test('Database Setup Tests', (t) => {
     dbSetup.cleanupTestDatabase((err, message) => {
       st.error(err, 'No error during cleanup')
       st.ok(message.includes('successfully'), 'Should return success message')
-      
+
       // Verify data was cleaned up
       db.get('SELECT COUNT(*) as count FROM project', (err, row) => {
         st.error(err, 'No error counting records after cleanup')
@@ -51,7 +51,7 @@ test('Database Setup Tests', (t) => {
   t.test('Specific project data validation', (st) => {
     dbSetup.initializeTestDatabase((err) => {
       st.error(err, 'No error during initialization')
-      
+
       // Check for specific projects mentioned in requirements
       db.get("SELECT * FROM project WHERE projectName = 'Peking roasted duck Chanel'", (err, row) => {
         st.error(err, 'No error querying specific project')
@@ -61,4 +61,4 @@ test('Database Setup Tests', (t) => {
       })
     })
   })
-}) 
+})

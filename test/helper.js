@@ -1,6 +1,6 @@
 const servertest = require('servertest')
 
-function createTestRequest(server, endpoint, method, requestBody, callback) {
+function createTestRequest (server, endpoint, method, requestBody, callback) {
   const json = JSON.stringify(requestBody || {})
   const stream = servertest(server, endpoint, {
     method,
@@ -13,22 +13,22 @@ function createTestRequest(server, endpoint, method, requestBody, callback) {
   stream.end(json)
 }
 
-function createGetRequest(server, endpoint, callback) {
-    return servertest(server, endpoint, {
-      method: 'GET',
-      encoding: 'json'
-    }, callback)
-  }
+function createGetRequest (server, endpoint, callback) {
+  return servertest(server, endpoint, {
+    method: 'GET',
+    encoding: 'json'
+  }, callback)
+}
 
-function createDeleteRequest(server, endpoint, callback) {
-    return servertest(server, endpoint, {
-      method: 'DELETE',
-      encoding: 'json'
-    }, callback)
-  }
+function createDeleteRequest (server, endpoint, callback) {
+  return servertest(server, endpoint, {
+    method: 'DELETE',
+    encoding: 'json'
+  }, callback)
+}
 
 // Additional utility functions for better test organization
-function validateProjectResponse(t, res, expectedFields = []) {
+function validateProjectResponse (t, res, expectedFields = []) {
   t.ok(res.body, 'Response should have body')
   if (expectedFields.length > 0) {
     expectedFields.forEach(field => {
@@ -37,7 +37,7 @@ function validateProjectResponse(t, res, expectedFields = []) {
   }
 }
 
-function validateErrorResponse(t, res, expectedStatusCode, expectedMessage = null) {
+function validateErrorResponse (t, res, expectedStatusCode, expectedMessage = null) {
   t.equal(res.statusCode, expectedStatusCode, `Should return ${expectedStatusCode}`)
   if (expectedMessage) {
     t.ok(res.body.message && res.body.message.includes(expectedMessage), 'Should have appropriate error message')
@@ -45,7 +45,7 @@ function validateErrorResponse(t, res, expectedStatusCode, expectedMessage = nul
 }
 
 // Test data generators
-function generateTestProject(overrides = {}) {
+function generateTestProject (overrides = {}) {
   return {
     projectId: 99999,
     projectName: 'Test Project',
@@ -62,7 +62,7 @@ function generateTestProject(overrides = {}) {
   }
 }
 
-function generateCurrencyRequest(overrides = {}) {
+function generateCurrencyRequest (overrides = {}) {
   return {
     year: 2000,
     projectName: 'Test Project',
