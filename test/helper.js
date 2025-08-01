@@ -29,31 +29,7 @@ function createDeleteRequest (server, endpoint, callback) {
   }, callback)
 }
 
-// Assertion helper functions
-function assertSuccessResponse (t, err, res, expectedStatus = 200) {
-  t.error(err, 'No error')
-  t.equal(res.statusCode, expectedStatus, `Should return ${expectedStatus}`)
-}
-
-function assertErrorResponse (t, err, res, expectedStatus = 400) {
-  t.error(err, 'No error')
-  t.equal(res.statusCode, expectedStatus, `Should return ${expectedStatus}`)
-}
-
-function assertProjectResponse (t, err, res, expectedStatus = 200) {
-  assertSuccessResponse(t, err, res, expectedStatus)
-  t.ok(res.body.projectId, 'Should have projectId')
-}
-
-function assertCurrencyResponse (t, err, res, expectedStatus = 200) {
-  assertSuccessResponse(t, err, res, expectedStatus)
-  t.ok(res.body.success, 'Should return success true')
-}
-
-function assertHealthResponse (t, err, res, expectedStatus = 200) {
-  assertSuccessResponse(t, err, res, expectedStatus)
-  t.ok(res.body.ok, 'Should return ok true')
-}
+// Test helper functions for making requests
 
 // Test data helper functions
 function createTestProject (projectId = 10001) {
@@ -99,11 +75,6 @@ module.exports = {
   createTestRequest,
   createGetRequest,
   createDeleteRequest,
-  assertSuccessResponse,
-  assertErrorResponse,
-  assertProjectResponse,
-  assertCurrencyResponse,
-  assertHealthResponse,
   createTestProject,
   createCurrencyRequest,
   createUpdateData

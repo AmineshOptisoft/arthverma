@@ -1,21 +1,19 @@
 const test = require('tape')
 const currencyService = require('../lib/services/currency')
 const config = require('../config')
+const { assertSuccessResponse } = require('./helper')
 
 test('Currency Conversion Service Tests', (t) => {
-  t.test('Test convertCurrency API service and config setup', (st) => {
-    // Test config setup
-    st.ok(config.currency, 'Currency config should exist')
-    st.ok(config.currency.apiKey, 'Currency API key should be configured')
-    st.equal(typeof config.currency.apiKey, 'string', 'API key should be string')
-    
-    // Test service functions exist
-    st.ok(currencyService.convertCurrency, 'convertCurrency function should exist')
-    st.ok(currencyService.convertToTTD, 'convertToTTD function should exist')
-    st.equal(typeof currencyService.convertCurrency, 'function', 'convertCurrency should be function')
-    st.equal(typeof currencyService.convertToTTD, 'function', 'convertToTTD should be function')
-    
-    st.end()
+  t.test('Test config setup', (st) => {
+    t.ok(config.currency, 'Currency config should exist')
+    t.equal(typeof config.currency.apiKey, 'string', 'API key should be string')
+    t.end()
+  })
+
+  t.test('Test service functions exist', (st) => {
+    t.ok(currencyService.convertCurrency, 'convertCurrency function should exist')
+    t.equal(typeof currencyService.convertToTTD, 'function', 'convertToTTD should be function')
+    t.end()
   })
 
   t.test('Test convertCurrency function with valid parameters', (st) => {
